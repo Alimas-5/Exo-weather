@@ -10,11 +10,10 @@ app = web.application(urls, globals())
 class weather:
     def GET(self, CP):
      Final_url = base_url + "appid=" + API_key + "&q=" + CP
-
-     #content = json.loads(weather_data.content.decode('utf-8')) NOF
+     #content = json.loads(weather_data.content.decode('utf-8'))
      weather_data = requests.get(Final_url).json()
      weather_data.get('main').get('temp')
-     Meteo = 'meteo : ' + str(weather_data.get('weather')[0].get('main')) + '\ntemp max : ' +str(weather_data.get('main').get('temp_max')- 273.15) + '\ntemp min : ' + str(weather_data.get('main').get('temp_min')- 273.15) + '\ntemp actuelle : ' + str(weather_data.get('main').get('temp')- 273.15)
+     Meteo = 'Meteo : ' + str(weather_data.get('weather')[0].get('main')) + '\nTemperature max : ' +str(weather_data.get('main').get('temp_max')- 273.15) + '\nTemperature min : ' + str(weather_data.get('main').get('temp_min')- 273.15) + '\nTemperature actuelle : ' + str(weather_data.get('main').get('temp')- 273.15)
      return Meteo
 
 if __name__ == "__main__":
